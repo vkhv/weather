@@ -8,38 +8,38 @@ injectTapEventPlugin();
 const cities = ['London', 'Limassol', 'Saint-petersburg'];
 
 export default class Input extends Component {
-  state = {
-    city: localStorage.getItem('city') || '',
-  };
+	state = {
+		city: localStorage.getItem('city') || '',
+	};
 
   handleUpdateInput = (city) => {
-	this.setState({
-	  city: city,
-	});
-  };
+		this.setState({
+			city: city,
+		});
+	};
 
-  handleNewRequest = () => {
-	const city = this.state.city;
-	this.props.setWeather(city)
-	localStorage.setItem('city', city)
-    this.setState({
-      searchText: city
-    });
-  };
+	handleNewRequest = () => {
+		const city = this.state.city;
+		this.props.setWeather(city)
+		localStorage.setItem('city', city)
+		this.setState({
+		searchText: city
+		});
+	};
 
-  render() {
-    return (
-      <div>
-        <AutoComplete
-          hintText="Type cityname"
-          searchText={this.state.city}
-          onUpdateInput={this.handleUpdateInput}
-          onNewRequest={this.handleNewRequest}
-          dataSource={cities}
-          filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
-          openOnFocus={true}
-        />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<AutoComplete
+					hintText="Type cityname"
+					searchText={this.state.city}
+					onUpdateInput={this.handleUpdateInput}
+					onNewRequest={this.handleNewRequest}
+					dataSource={cities}
+					filter={(searchText, key) => (key.indexOf(searchText) !== -1)}
+					openOnFocus={true}
+				/>
+			</div>
+		);
+	}
 }
