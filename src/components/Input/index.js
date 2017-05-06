@@ -22,9 +22,7 @@ export default class Input extends Component {
 		const city = this.state.city;
 		this.props.setWeather(city)
 		localStorage.setItem('city', city)
-		this.setState({
-		searchText: city
-		});
+		this.setState({searchText: city});
 	};
 
 	render() {
