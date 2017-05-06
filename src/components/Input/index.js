@@ -13,16 +13,16 @@ export default class Input extends Component {
   };
 
   handleUpdateInput = (searchText) => {
-    this.setState({
-      searchText: searchText,
-    });
+	this.setState({
+	  searchText: searchText,
+	});
   };
 
   handleNewRequest = () => {
 	fetch(`http://api.weatherbit.io/v1.0/forecast/3hourly/geosearch?city=${this.state.searchText}&key=2898e0ac44a445ac91205bc4339a07c8`)
 		.then(res => res.json())
-		.then(weatherApiAnswer => this.setState(prevState => Object.assign({}, prevState, {weatherApiAnswer})))
-		.catch(err => alert('Error! Please chose the correct city.'))
+		.then(weatherApiAnswer => this.props.setWeather(weatherApiAnswer))
+		.catch(err => alert(err))
 
     this.setState({
       searchText: this.state.searchText,
