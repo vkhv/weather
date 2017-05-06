@@ -12,7 +12,7 @@ export default class Input extends Component {
 		city: localStorage.getItem('city') || '',
 	};
 
-  handleUpdateInput = (city) => {
+	handleUpdateInput = (city) => {
 		this.setState({
 			city: city,
 		});
