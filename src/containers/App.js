@@ -41,18 +41,8 @@ class App extends Component {
   }
 }
 
-function mapStateToProps (state) {
-	return {
-		weatherApiAnswer: state.weatherApiAnswer
-	}
-
-}
-
-function mapDispatchToProps(dispatch) {
-		return {
-			pageActions: bindActionCreators(pageActions, dispatch)
-		}
-}
+const mapStateToProps = state => ({weatherApiAnswer: state.weatherApiAnswer});
+const mapDispatchToProps = dispatch => ({pageActions: bindActionCreators(pageActions, dispatch)})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
 
