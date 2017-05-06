@@ -9,7 +9,7 @@ const cities = ['London', 'Limassol', 'Saint-petersburg'];
 
 export default class Input extends Component {
   state = {
-    city: '',
+    city: localStorage.getItem('city') || '',
   };
 
   handleUpdateInput = (city) => {
@@ -19,9 +19,11 @@ export default class Input extends Component {
   };
 
   handleNewRequest = () => {
-	this.props.setWeather(this.state.city)
+	const city = this.state.city;
+	this.props.setWeather(city)
+	localStorage.setItem('city', city)
     this.setState({
-      searchText: this.state.city,
+      searchText: city
     });
   };
 
