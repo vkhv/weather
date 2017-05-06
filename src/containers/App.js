@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect  } from 'react-redux'
-import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Input from '../components/Input';
 import { bindActionCreators  } from 'redux';
