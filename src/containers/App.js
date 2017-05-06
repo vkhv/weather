@@ -49,9 +49,9 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps(dispatch) {
-		return {
-			pageActions: bindActionCreators(pageActions, dispatch)
-		}
+	return {
+		pageActions: bindActionCreators(pageActions, dispatch)
+	}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
