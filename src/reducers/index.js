@@ -1,12 +1,22 @@
+import {
+	GET_WEATHER_REQUEST, GET_WEATHER_SUCCESS, GET_WEATHER_FAILURE
+} from '../constants/Weather'
+
 const initialState = {
-	weather: 'Погода еще не известна...',
+	weatherApiAnswer: {},
 }
 
 export default function weather(state = initialState, action) {
 
   switch (action.type) {
-    case 'SET_WEATHER':
-      return { ...state, weather: action.payload }
+    case GET_WEATHER_REQUEST:
+      return { ...state, weatherApiAnswer: action.payload }
+
+    case GET_WEATHER_SUCCESS:
+      return { ...state, weatherApiAnswer: action.payload }
+
+    case GET_WEATHER_FAILURE:
+      return { ...state, weatherRequstFailure: true, errorMessage: action.payload.message }
 
     default:
       return state;

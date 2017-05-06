@@ -10,7 +10,6 @@ import * as pageActions from '../actions/WeatherActions';
 
 class App extends Component {
   render() {
-		  console.log(this.props.weather);
 	return (
 		<div>
 
@@ -18,7 +17,7 @@ class App extends Component {
 					<Input setWeather={this.props.pageActions.setWeather} />
 				</MuiThemeProvider>
 			{
-					this.props.weather && this.props.weather.city_name
+				this.props.weatherApiAnswer && this.props.weatherApiAnswer.city_name
 			}
 		</div>
 	);
@@ -27,7 +26,7 @@ class App extends Component {
 
 function mapStateToProps (state) {
 	return {
-		weather: state.weather
+		weatherApiAnswer: state.weatherApiAnswer
 	}
 
 }

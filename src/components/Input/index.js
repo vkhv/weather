@@ -9,23 +9,19 @@ const cities = ['London', 'Limassol', 'Saint-petersburg'];
 
 export default class Input extends Component {
   state = {
-    searchText: '',
+    city: '',
   };
 
-  handleUpdateInput = (searchText) => {
+  handleUpdateInput = (city) => {
 	this.setState({
-	  searchText: searchText,
+	  city: city,
 	});
   };
 
   handleNewRequest = () => {
-	fetch(`http://api.weatherbit.io/v1.0/forecast/3hourly/geosearch?city=${this.state.searchText}&key=2898e0ac44a445ac91205bc4339a07c8`)
-		.then(res => res.json())
-		.then(weatherApiAnswer => this.props.setWeather(weatherApiAnswer))
-		.catch(err => alert(err))
-
+	this.props.setWeather(this.state.city)
     this.setState({
-      searchText: this.state.searchText,
+      searchText: this.state.city,
     });
   };
 
@@ -34,7 +30,7 @@ export default class Input extends Component {
       <div>
         <AutoComplete
           hintText="Type cityname"
-          searchText={this.state.searchText}
+          searchText={this.state.city}
           onUpdateInput={this.handleUpdateInput}
           onNewRequest={this.handleNewRequest}
           dataSource={cities}
