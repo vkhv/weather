@@ -8,18 +8,18 @@ const initialState = {
 
 export default function weather(state = initialState, action) {
 
-  switch (action.type) {
-    case GET_WEATHER_REQUEST:
-      return { ...state, weatherApiAnswer: {fetch: true} }
+	switch (action.type) {
+		case GET_WEATHER_REQUEST:
+			return { ...state, weatherApiAnswer: {fetch: true} }
 
-    case GET_WEATHER_SUCCESS:
-      return { ...state, weatherApiAnswer: action.payload }
+	case GET_WEATHER_SUCCESS:
+		return { ...state, weatherApiAnswer: action.payload }
 
-    case GET_WEATHER_FAILURE:
-      return { ...state, weatherApiAnswer: {fetch: false, error: true}  }
+	case GET_WEATHER_FAILURE:
+		return { ...state, weatherApiAnswer: {fetch: false, error: true}  }
 
-    default:
-      return state;
-  }
+	default:
+		return state;
+	}
 
 }
