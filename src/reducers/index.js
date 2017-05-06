@@ -12,11 +12,11 @@ export default function weather(state = initialState, action) {
 		case GET_WEATHER_REQUEST:
 			return { ...state, weatherApiAnswer: {fetch: true} }
 
-	case GET_WEATHER_SUCCESS:
-		return { ...state, weatherApiAnswer: action.payload }
+		case GET_WEATHER_SUCCESS:
+			return { ...state, weatherApiAnswer: action.payload }
 
-	case GET_WEATHER_FAILURE:
-		return { ...state, weatherApiAnswer: {fetch: false, error: true}  }
+		case GET_WEATHER_FAILURE:
+			return { ...state, weatherApiAnswer: {fetch: false, error: true}  }
 
 	default:
 		return state;
