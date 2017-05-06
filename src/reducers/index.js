@@ -16,7 +16,7 @@ export default function weather(state = initialState, action) {
       return { ...state, weatherApiAnswer: action.payload }
 
     case GET_WEATHER_FAILURE:
-      return { ...state, weatherRequstFailure: true, errorMessage: action.payload.message }
+      return { ...state, weatherApiAnswer: {fetch: false, error: true}  }
 
     default:
       return state;

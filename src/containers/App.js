@@ -16,19 +16,24 @@ class App extends Component {
 				<Input setWeather={this.props.pageActions.setWeather} />
 				{
 					// Добавить спиннер на загрузку
-					this.props.weatherApiAnswer && this.props.weatherApiAnswer.fetch &&
-						<CircularProgress />
+					this.props.weatherApiAnswer && this.props.weatherApiAnswer.fetch
+						&& <CircularProgress />
 				}
 				{
 					// Отрисовать данные
-					this.props.weatherApiAnswer && this.props.weatherApiAnswer.data &&
-						<div>
+					this.props.weatherApiAnswer && this.props.weatherApiAnswer.data
+						&& <div>
 							<span>Temperature - {this.props.weatherApiAnswer.data[0].temp}</span>
 							<br />
 							<span>Preasure - {this.props.weatherApiAnswer.data[0].pres}</span>
 							<br />
 							<span>Relative Humidity - {this.props.weatherApiAnswer.data[0].rh}</span>
 						</div>
+				}
+				{
+					// Отрисовать ошибку
+					this.props.weatherApiAnswer.error
+						&& 'Ошибка, убедитесь что ввели название города правильно и проверте соединение с сетью'
 				}
 			</div>
 		</MuiThemeProvider>
